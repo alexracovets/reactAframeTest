@@ -10,7 +10,7 @@ export default function AppScene() {
         const watchPositionId = navigator.geolocation.watchPosition(
             position => {
                 const { latitude, longitude } = position.coords;
-                setArObjectAttributes(latitude, longitude);
+                setArObjectAttributes({ latitude, longitude });
             },
             error => {
                 console.error('Error retrieving geolocation:', error);
