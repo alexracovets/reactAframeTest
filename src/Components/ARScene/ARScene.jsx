@@ -10,7 +10,7 @@ export default function AppScene() {
         const watchPositionId = navigator.geolocation.watchPosition(
             position => {
                 const { latitude, longitude } = position.coords;
-                setArObjectAttributes(`latitude: ${latitude}; longitude: ${longitude}`);
+                setArObjectAttributes({ latitude, longitude });
             },
             error => {
                 console.error('Error retrieving geolocation:', error);
@@ -24,7 +24,11 @@ export default function AppScene() {
 
     return (
         <Scene>
-            <Entity id="arObject" ref={arObjectRef} gps-entity-place={arObjectAttributes}>
+            <Entity
+                id="arObject"
+                ref={arObjectRef}
+                gps-entity-place={`latitude: ${arObjectAttributes.latitude}; longitude: ${arObjectAttributes.longitude};`}
+            >
                 <Entity geometry={{ primitive: 'box', width: 1 }} position="0 1 -2" material="color: red" />
             </Entity>
             <Entity gps-camera rotation-reader />
