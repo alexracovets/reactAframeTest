@@ -22,11 +22,15 @@ export default function AppScene() {
     }, []);
 
     return (
-        <Scene>
+        <Scene
+            vr-mode-ui="enabled: false"
+            embedded
+            arjs="sourceType: webcam; debugUIEnabled: false;"
+        >
             <Entity
                 id="arObject"
                 ref={arObjectRef}
-                gps-entity-place={`longitude: ${arObjectAttributes.longitude}; latitude: ${arObjectAttributes.latitude};`}
+                gps-entity-place={`longitude: ${arObjectAttributes.longitude - 0.0005}; latitude: ${arObjectAttributes.latitude + 0.0006};`}
             >
                 <Entity geometry={{ primitive: 'box', width: 1 }} material="color: red" />
             </Entity>
