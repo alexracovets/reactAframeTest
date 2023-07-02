@@ -15,7 +15,7 @@ export default function AppScene() {
                 setUserLatitude(latitude);
                 setUserLongitude(longitude);
 
-                setArObjectAttributes({ latitude, longitude });
+                setArObjectAttributes(userLatitude, userLongitude);
             },
             error => {
                 console.error('Error retrieving geolocation:', error);
@@ -23,8 +23,7 @@ export default function AppScene() {
         );
 
         return () => {
-            navigator.geolocation.clearWatch(watchPositionId);
-            console.log(userLatitude, userLongitude)
+            navigator.geolocation.clearWatch(watchPositionId); 
         };
     }, []);
 
