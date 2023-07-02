@@ -1,25 +1,11 @@
-import logo from './logo.svg';
-import './App.css';
-
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    return (
+        <a-scene embedded arjs="trackingMethod: best; debugUIEnabled: false;">
+            <a-camera gps-camera rotation-reader></a-camera>
+            <a-entity id="arObject" geometry="primitive: box; depth: 1; height: 1; width: 1" material="color: red"
+                gps-entity-place="latitude: 50.452505227936946; longitude: 30.354042820289482;" />
+        </a-scene>
+    );
 }
 
 export default App;
