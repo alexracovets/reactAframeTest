@@ -24,6 +24,7 @@ export default function AppScene() {
 
         return () => {
             navigator.geolocation.clearWatch(watchPositionId);
+            console.log(userLatitude, userLongitude)
         };
     }, []);
 
