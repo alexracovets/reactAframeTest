@@ -3,8 +3,6 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Scene, Entity } from 'react-aframe-ar';
 
 export default function AppScene() {
-    const [userLatitude, setUserLatitude] = useState(0);
-    const [userLongitude, setUserLongitude] = useState(0);
     const [arObjectAttributes, setArObjectAttributes] = useState({ latitude: 0, longitude: 0 });
     const arObjectRef = useRef(null);
 
@@ -12,10 +10,7 @@ export default function AppScene() {
         const watchPositionId = navigator.geolocation.watchPosition(
             position => {
                 const { latitude, longitude } = position.coords;
-                setUserLatitude(latitude);
-                setUserLongitude(longitude);
-
-                setArObjectAttributes(userLatitude, userLongitude);
+                setArObjectAttributes(latitude, longitude);
             },
             error => {
                 console.error('Error retrieving geolocation:', error);
@@ -23,7 +18,7 @@ export default function AppScene() {
         );
 
         return () => {
-            navigator.geolocation.clearWatch(watchPositionId); 
+            navigator.geolocation.clearWatch(watchPositionId);
         };
     }, []);
 
