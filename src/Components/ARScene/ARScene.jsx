@@ -3,9 +3,8 @@ import React, { useEffect, useState, useRef } from 'react';
 import { Scene, Entity } from 'react-aframe-ar';
 
 export default function AppScene() {
-    const [arObjectAttributes, setArObjectAttributes] = useState({ latitude: 0, longitude: 0 });
-    const arObjectRef = useRef(null);
-
+    const [arObjectAttributes, setArObjectAttributes] = useState({ latitude: 50.452505227936946, longitude: 30.354042820289482 });
+    const arObjectRef = useRef(null); 
     useEffect(() => {
         const watchPositionId = navigator.geolocation.watchPosition(
             position => {
