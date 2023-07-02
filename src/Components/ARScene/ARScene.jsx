@@ -27,7 +27,7 @@ export default function AppScene() {
             <Box
                 id="arObject"
                 material="color: red"
-                gps-entity-place="longitude: 30.354042820289482; latitude: 50.452505227936946;"
+                gps-entity-place="latitude: 50.452481; longitude: 30.354043;"
             />
 
             <Entity gps-camera rotation-reader />
